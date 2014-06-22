@@ -1,7 +1,7 @@
 /**
 * Live Drawing 0.1.2 - Prototype
 * http://support.proboards.com/user/2671
-* Copyright (C) 2014 pixelDepth.net All Rights Reserved.
+* Copyright (C) 2014 pixelDepth.net
 */
 
 $(function(){
