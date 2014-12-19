@@ -1,4 +1,4 @@
-Live Drawing 0.1.2
+Live Drawing 0.1.3
 ==================
 
 This is a ProBoards plugin that allows members to create a picture when replying to a topic and attaching it directly to the post.
