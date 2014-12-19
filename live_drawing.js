@@ -1,5 +1,5 @@
 /**
-* Live Drawing 0.1.2 - Prototype
+* Live Drawing 0.1.3 - Prototype
 * http://support.proboards.com/user/2671
 * Copyright (C) 2014 pixelDepth.net
 */
@@ -184,7 +184,7 @@ $(function(){
 							return;
 						}
 
-						content += "[div href=\"http://pd_live_drawing.proboards\" title=\"" + self.canvas.get(0).toDataURL() + "\"][/div]";
+						content += "[div href=\"https://github.com/PopThosePringles/ProBoards-Live-Drawing\" title=\"" + self.canvas.get(0).toDataURL() + "\"][/div]";
 						area.wysiwyg("setContent", content);
 					});
 				}
@@ -579,7 +579,7 @@ $(function(){
 			},
 
 			convert_canvas_data: function(){
-				var datas = $("div.message div[href*=pd_live_drawing\\.proboards]");
+				var datas = $("div.message div[href*=ProBoards-Live-Drawing]");
 
 				datas.each(function(){
 					var data = $(this).attr("title").split(";base64,")[1];
