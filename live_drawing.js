@@ -1,5 +1,5 @@
 /**
-* Live Drawing 0.1.3 - Prototype
+* Live Drawing 0.1.4 - Prototype
 * http://support.proboards.com/user/2671
 * Copyright (C) 2014 pixelDepth.net
 */
@@ -34,6 +34,8 @@ $(function(){
 			drawing_eraser: false,
 
 			mouse_is_down: false,
+			
+			no_use_boards: [],
 
 			random_num: function(min, max){
   				return Math.floor(Math.random() * ((max - min) + 1)) + min;
@@ -94,7 +96,11 @@ $(function(){
 
 			init: function(){
 				this.setup();
-
+				
+				if(!this.can_use_in_board()){
+					return;	
+				}
+				
 				if(yootil.location.check.posting() || yootil.location.check.editing() || yootil.location.check.messaging()){
 					if(!!document.createElement("canvas").getContext){
 						this.create_canvas();
@@ -113,6 +119,18 @@ $(function(){
 					this.convert_canvas_data();
 				}
 			},
+			
+			can_use_in_board: function(){
+				if(this.no_use_boards.length){
+					var board_id = parseInt(yootil.page.board.id());
+		
+					if(board_id && $.inArrayLoose(board_id, this.no_use_boards) == -1){
+						return false;
+					}
+				}
+		
+				return true;				
+			},
 
 			setup: function(){
 				var plugin = proboards.plugin.get("pixeldepth_live_drawing");
@@ -120,6 +138,7 @@ $(function(){
 
 				if(settings){
 					this.images = plugin.images;
+					this.no_use_boards = settings.no_use_boards;
 				}
 			},
 
